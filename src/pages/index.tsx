@@ -1,9 +1,19 @@
 import Layout from "@/components/Layout";
+import TableClient from "@/components/TableClient";
+import Client from "@/core/Client";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const clients = [
+    new Client('Ana', 34, '1'),
+    new Client('Catherine', 28, '2'),
+    new Client('Stephan', 30, '3'),
+    new Client('Caleb', 29, '4')
+  ]
+
   return (
     <div
       className={`flex h-screen justify-center items-center 
@@ -11,7 +21,7 @@ export default function Home() {
      ${inter.className}`}>
       
       <Layout Title="Simple CRUD">
-        <span>Content</span>
+        <TableClient clients={clients}></TableClient>
       </Layout>
     </div>
   );
