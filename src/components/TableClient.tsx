@@ -36,21 +36,25 @@ export default function TableClient(props: TableProps) {
 
     function renderActions(client: Client) {
         return (
-            <td className="flex">
-                <button className={`
-                    flex justify-center items-center
-                    text-green-600 rounded-full p-2 m-1
-                    hover:bg-purple-50    
-                `}>
-                    {EditIcon}
-                </button>
-                <button className={`
+            <td className="flex justify-center">
+                {props.selectedClient ? (
+                    <button className={`
+                        flex justify-center items-center
+                        text-green-600 rounded-full p-2 m-1
+                        hover:bg-purple-50    
+                    `}>
+                        {EditIcon}
+                    </button>
+                ) : false}
+                {props.deletedClient ? (
+                    <button className={`
                     flex justify-center items-center
                     text-red-500 rounded-full p-2 m-1
                     hover:bg-purple-50    
                 `}>
-                    {TrashIcon}
-                </button>
+                        {TrashIcon}
+                    </button>
+                ) : false}
             </td>
         )
     }
