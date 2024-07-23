@@ -40,7 +40,7 @@ export default function TableClient(props: TableProps) {
         return (
             <td className="flex justify-center">
                 {props.selectedClient ? (
-                    <button className={`
+                    <button onClick={() => props.selectedClient?.(client)} className={`
                         flex justify-center items-center
                         text-green-600 rounded-full p-2 m-1
                         hover:bg-purple-50    
@@ -49,7 +49,7 @@ export default function TableClient(props: TableProps) {
                     </button>
                 ) : false}
                 {props.deletedClient ? (
-                    <button className={`
+                    <button onClick={(() => props.deletedClient?.(client))} className={`
                     flex justify-center items-center
                     text-red-500 rounded-full p-2 m-1
                     hover:bg-purple-50    

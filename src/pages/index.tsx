@@ -15,7 +15,11 @@ export default function Home() {
   ]
 
   function selectedClient(client: Client) {
+    console.log(client.name)
+  }
 
+  function deletedClient(client: Client) {
+    console.log(`Delete: ${client.name}`)
   }
 
   return (
@@ -25,7 +29,7 @@ export default function Home() {
      ${inter.className}`}>
       
       <Layout Title="Simple CRUD">
-        <TableClient clients={clients} selectedClient={selectedClient}></TableClient>
+        <TableClient clients={clients} selectedClient={selectedClient} deletedClient={deletedClient}></TableClient>
       </Layout>
     </div>
   );
