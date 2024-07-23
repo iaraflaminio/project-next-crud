@@ -1,3 +1,4 @@
+import ButtonNewClient from "@/components/ButtonNewClient";
 import Layout from "@/components/Layout";
 import TableClient from "@/components/TableClient";
 import Client from "@/core/Client";
@@ -27,8 +28,11 @@ export default function Home() {
       flex h-screen justify-center items-center 
       bg-gradient-to-r from-purple-500 to-blue-600 
      ${inter.className}`}>
-      
+
       <Layout Title="Simple CRUD">
+        <div className="flex justify-end">
+          <ButtonNewClient className="mb-4">New Client</ButtonNewClient>
+        </div>
         <TableClient clients={clients} selectedClient={selectedClient} deletedClient={deletedClient}></TableClient>
       </Layout>
     </div>
