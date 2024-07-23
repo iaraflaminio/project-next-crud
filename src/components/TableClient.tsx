@@ -9,13 +9,15 @@ interface TableProps {
 
 export default function TableClient(props: TableProps) {
 
+    const showActions = props.deletedClient || props.selectedClient
+
     function renderHeader() {
         return (
             <tr>
                 <th className="text-left p-4">ID</th>
                 <th className="text-left p-4">Name</th>
                 <th className="text-left p-4">Age</th>
-                <th className="p-4">Actions</th>
+                {showActions ? <th className="p-4">Actions</th> : false}
             </tr>
         )
     }
@@ -28,7 +30,7 @@ export default function TableClient(props: TableProps) {
                     <td className="text-left p-4">{client.id}</td>
                     <td className="text-left p-4">{client.name}</td>
                     <td className="text-left p-4">{client.age}</td>
-                    {renderActions(client)}
+                    {showActions ? renderActions(client) : false}
                 </tr>
             )
         })
