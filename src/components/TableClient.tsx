@@ -3,6 +3,8 @@ import { EditIcon, TrashIcon } from "./Icons"
 
 interface TableProps {
     clients: Client[]
+    selectedClient?: (client: Client) => void
+    deletedClient?: (client: Client) => void
 }
 
 export default function TableClient(props: TableProps) {
