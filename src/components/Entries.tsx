@@ -20,7 +20,7 @@ export default function Entries(props: EntriesProps) {
                 onChange={(e) => props.changedValue?.(e.target.value)}
                 className={`
                   boder border-purple-500 rounded-lg
-                  focus: outline-none bg-gray-200 px-4 py-2 hover:bg-white
+                  focus: outline-none bg-gray-200 px-4 py-2 hover:outline-purple-200
                   ${props.readOnly ? '' : 'focus:bg-white' }
                 `}
             />
