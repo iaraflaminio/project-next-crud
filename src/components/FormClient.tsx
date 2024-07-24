@@ -1,7 +1,7 @@
 import Client from "@/core/Client"
 import Entries from "./Entries"
 import { useState } from "react"
-import ButtonNewClient from "./ButtonNewClient"
+import ButtonClient from "./ButtonClient"
 
 interface FormClientProps {
     client: Client
@@ -20,10 +20,10 @@ export default function FormClient(props: FormClientProps) {
             <Entries text="Age" type="number" value={age} changedValue={setAge} />
 
             <div className="flex justify-end mt-6">
-                <ButtonNewClient className="mr-2">
+                <ButtonClient className="mr-2">
                     {id ? 'Update' : 'Create'}
-                </ButtonNewClient>
-                <ButtonNewClient > Cancel </ButtonNewClient>
+                </ButtonClient>
+                <ButtonClient > Cancel </ButtonClient>
             </div>
         </div>
     )

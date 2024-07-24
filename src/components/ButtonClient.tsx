@@ -4,7 +4,7 @@ interface ButtonProps {
     onClick?: () => void
 }
 
-export default function ButtonNewClient(props: ButtonProps) {
+export default function ButtonClient(props: ButtonProps) {
     return (
         <button onClick={props.onClick} className={`
             bg-gradient-to-r from-blue-400 to-purple-700
