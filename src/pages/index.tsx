@@ -25,6 +25,9 @@ export default function Home() {
     console.log(`Delete: ${client.name}`)
   }
 
+  function saveClient(client: Client) {
+    console.log(client)
+  }
 
   const [visibleTable, setVisible] = useState<'table' | 'form'>('table')
 
@@ -48,6 +51,7 @@ export default function Home() {
 
         </>) : (
           <FormClient client={clients[0]} 
+            changedClient={saveClient}
             canceled={() => setVisible('table')}
           />
         )}
