@@ -32,7 +32,7 @@ export default function Home() {
 
       <Layout Title="Simple CRUD">
         <div className="flex justify-end">
-          <ButtonClient className="mb-4">New Client</ButtonClient>
+          <ButtonClient color={'blue'} className="mb-4">New Client</ButtonClient>
         </div>
         {/* <TableClient clients={clients} selectedClient={selectedClient} deletedClient={deletedClient}></TableClient> */}
         <FormClient client={clients[0]}></FormClient>

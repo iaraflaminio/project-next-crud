@@ -20,10 +20,10 @@ export default function FormClient(props: FormClientProps) {
             <Entries text="Age" type="number" value={age} changedValue={setAge} />
 
             <div className="flex justify-end mt-6">
-                <ButtonClient className="mr-2">
+                <ButtonClient color={'green'} className="mr-2">
                     {id ? 'Update' : 'Create'}
                 </ButtonClient>
-                <ButtonClient > Cancel </ButtonClient>
+                <ButtonClient color={'gray'}> Cancel </ButtonClient>
             </div>
         </div>
     )
