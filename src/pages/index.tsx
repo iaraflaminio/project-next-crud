@@ -1,9 +1,10 @@
-import ButtonClient from "@/components/ButtonClient";
-import FormClient from "@/components/FormClient";
-import Layout from "@/components/Layout";
-import TableClient from "@/components/TableClient";
-import Client from "@/core/Client";
-import { Inter } from "next/font/google";
+import ButtonClient from "@/components/ButtonClient"
+import FormClient from "@/components/FormClient"
+import Layout from "@/components/Layout"
+import TableClient from "@/components/TableClient"
+import Client from "@/core/Client"
+import { Inter } from "next/font/google"
+import { useState } from "react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,9 @@ export default function Home() {
     console.log(`Delete: ${client.name}`)
   }
 
+
+  const [visibleTable, setVisible] = useState<'table' | 'form'>('table')
+
   return (
     <div className={`
       flex h-screen justify-center items-center 
@@ -31,12 +35,24 @@ export default function Home() {
      ${inter.className}`}>
 
       <Layout Title="Simple CRUD">
-        <div className="flex justify-end">
-          <ButtonClient color={'blue'} className="mb-4">New Client</ButtonClient>
-        </div>
-        {/* <TableClient clients={clients} selectedClient={selectedClient} deletedClient={deletedClient}></TableClient> */}
-        <FormClient client={clients[0]}></FormClient>
+        {visibleTable === 'table' ? (<>
+
+          <div className="flex justify-end">
+            <ButtonClient color={'blue'} className="mb-4" onClick={() => setVisible('form')}>
+              New Client
+            </ButtonClient>
+          </div>
+
+          <TableClient clients={clients} selectedClient={selectedClient} deletedClient={deletedClient}></TableClient>
+
+
+        </>) : (
+          <FormClient client={clients[0]} 
+            canceled={() => setVisible('table')}
+          />
+        )}
+
       </Layout>
     </div>
-  );
+  )
 }
