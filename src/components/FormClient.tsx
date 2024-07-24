@@ -21,7 +21,7 @@ export default function FormClient(props: FormClientProps) {
 
             <div className="flex justify-end mt-6">
                 <ButtonClient color={'green'} className="mr-2"
-                onClick={() => props.changedClient?.(new Client(name, age, id))}>
+                onClick={() => props.changedClient?.(new Client(name, +age, id))}>
                     {id ? 'Update' : 'Create'}
                 </ButtonClient>
 
