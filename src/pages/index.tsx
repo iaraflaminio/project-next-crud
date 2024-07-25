@@ -27,6 +27,7 @@ export default function Home() {
 
   function saveClient(client: Client) {
     console.log(client)
+    setVisible('table')
   }
 
   const [visibleTable, setVisible] = useState<'table' | 'form'>('table')
