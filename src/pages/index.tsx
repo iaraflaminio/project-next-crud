@@ -22,6 +22,7 @@ export default function Home() {
 
   function selectedClient(client: Client) {
     setClient(client)
+    setVisible('form')
   }
 
   function deletedClient(client: Client) {
