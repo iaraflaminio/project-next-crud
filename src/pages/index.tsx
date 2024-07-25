@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
+  const [client, setClient] = useState<Client>(Client.empty())
+  const [visibleTable, setVisible] = useState<'table' | 'form'>('table')
+
   const clients = [
     new Client('Ana', 34, '1'),
     new Client('Catherine', 28, '2'),
@@ -18,7 +21,7 @@ export default function Home() {
   ]
 
   function selectedClient(client: Client) {
-    console.log(client.name)
+    setClient(client)
   }
 
   function deletedClient(client: Client) {
@@ -30,7 +33,7 @@ export default function Home() {
     setVisible('table')
   }
 
-  const [visibleTable, setVisible] = useState<'table' | 'form'>('table')
+
 
   return (
     <div className={`
@@ -51,7 +54,7 @@ export default function Home() {
 
 
         </>) : (
-          <FormClient client={clients[0]} 
+          <FormClient client={client} 
             changedClient={saveClient}
             canceled={() => setVisible('table')}
           />
