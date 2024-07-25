@@ -29,6 +29,11 @@ export default function Home() {
     console.log(`Delete: ${client.name}`)
   }
 
+  function newClient(){
+    setClient(Client.empty())
+    setVisible('form')
+  }
+
   function saveClient(client: Client) {
     console.log(client)
     setVisible('table')
@@ -46,7 +51,7 @@ export default function Home() {
         {visibleTable === 'table' ? (<>
 
           <div className="flex justify-end">
-            <ButtonClient color={'blue'} className="mb-4" onClick={() => setVisible('form')}>
+            <ButtonClient color={'blue'} className="mb-4" onClick={newClient}>
               New Client
             </ButtonClient>
           </div>
