@@ -1,51 +1,24 @@
-import ClientCollection from "@/backend/database/ClientCollection"
 import ButtonClient from "@/components/ButtonClient"
 import FormClient from "@/components/FormClient"
 import Layout from "@/components/Layout"
 import TableClient from "@/components/TableClient"
-import Client from "@/core/Client"
-import ClientRepository from "@/core/ClientRepository"
 import { Inter } from "next/font/google"
-import { useState, useEffect } from "react"
+import useClients from "@/hooks/useClients"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export default function Home() {
 
-  const repo: ClientRepository = new ClientCollection()
-
-  const [client, setClient] = useState<Client>(Client.empty())
-  const [clients, setClients] = useState<Client[]>([])
-  const [visibleTable, setVisible] = useState<'table' | 'form'>('table')
-
-  useEffect(getAllClients, [])
-
-  function getAllClients(){
-    repo.getAll().then(clients => {
-      setClients(clients)
-      setVisible('table')
-    })
-  }
-
-  function selectedClient(client: Client) {
-    setClient(client)
-    setVisible('form')
-  }
-
-  async function deletedClient(client: Client) {
-    await repo.delete(client)
-    getAllClients()
-  }
-
-  function newClient(){
-    setClient(Client.empty())
-    setVisible('form')
-  }
-
-  async function saveClient(client: Client) {
-    await repo.save(client)
-    getAllClients()
-  }
+  const {
+    client,
+    clients,
+    newClient,
+    saveClient,
+    selectClient,
+    deleteClient,
+    tableVisible,
+    showTable
+  } = useClients()
 
 
 
@@ -56,7 +29,8 @@ export default function Home() {
      ${inter.className}`}>
 
       <Layout Title="Simple CRUD">
-        {visibleTable === 'table' ? (<>
+        {tableVisible ? (
+          <>
 
           <div className="flex justify-end">
             <ButtonClient color={'blue'} className="mb-4" onClick={newClient}>
@@ -64,13 +38,13 @@ export default function Home() {
             </ButtonClient>
           </div>
 
-          <TableClient clients={clients} selectedClient={selectedClient} deletedClient={deletedClient}></TableClient>
+          <TableClient clients={clients} selectedClient={selectClient} deletedClient={deleteClient}></TableClient>
 
 
         </>) : (
           <FormClient client={client} 
             changedClient={saveClient}
-            canceled={() => setVisible('table')}
+            canceled={showTable}
           />
         )}
 
