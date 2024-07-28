@@ -7,7 +7,7 @@ import useTableOrForm from "./useTableForm"
 export default function useClients() {
   const repo: ClientRepository = new ClientCollection()
 
-  const {tableVisible, formVisible, showTable, showForm} = useTableOrForm()
+  const {tableVisible, showTable, showForm} = useTableOrForm()
 
   const [client, setClient] = useState<Client>(Client.empty())
   const [clients, setClients] = useState<Client[]>([])
@@ -17,13 +17,13 @@ export default function useClients() {
   function getAllClients() {
     repo.getAll().then(clients => {
       setClients(clients)
-      setVisible('table')
+      showTable()
     })
   }
 
   function selectClient(client: Client) {
     setClient(client)
-    setVisible('form')
+    showForm()
   }
 
   async function deleteClient(client: Client) {
@@ -33,7 +33,7 @@ export default function useClients() {
 
   function newClient() {
     setClient(Client.empty())
-    setVisible('form')
+    showForm()
   }
 
   async function saveClient(client: Client) {
@@ -49,7 +49,7 @@ export default function useClients() {
     deleteClient,
     selectClient,
     getAllClients,
-    visibleTable,
-    setVisible,
+    tableVisible,
+    showTable
   }
 }
