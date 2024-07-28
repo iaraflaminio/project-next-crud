@@ -1,18 +1,18 @@
 import ClientCollection from "@/backend/database/ClientCollection"
 import Client from "@/core/Client"
 import ClientRepository from "@/core/ClientRepository"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import useTableOrForm from "./useTableForm"
 
 export default function useClients() {
-  const repo: ClientRepository = new ClientCollection()
+  const repo: ClientRepository = useMemo(() => new ClientCollection(), []) 
 
   const {tableVisible, showTable, showForm} = useTableOrForm()
 
   const [client, setClient] = useState<Client>(Client.empty())
   const [clients, setClients] = useState<Client[]>([])
 
-  useEffect(getAllClients, [])
+  useEffect(getAllClients, [repo, showTable])
 
   function getAllClients() {
     repo.getAll().then(clients => {
