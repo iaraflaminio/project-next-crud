@@ -12,7 +12,7 @@
 ---
 
 # <a id="english-version">English Version</a>
-This is a CRUD application built with Next.js, using Firebase as the backend. The project follows the lessons from the [Cod3r](https://www.cod3r.com.br/) Web Development course.
+This is a CRUD application built with Next.js, using Firebase for data persistence. The project follows the lessons from the [Cod3r](https://www.cod3r.com.br/) Web Development course.
 
 ### Features
 - Add, update, delete, and list clients.
@@ -86,7 +86,7 @@ This is a CRUD application built with Next.js, using Firebase as the backend. Th
 
 ## <a id="versao-em-portugues">Versão em Português</a>
 # Projeto CRUD com Next.js e Firebase
-Esta é uma aplicação CRUD construída com Next.js, usando o Firebase como backend. O projeto segue as lições do curso de Desenvolvimento Web da [Cod3r](https://www.cod3r.com.br/).
+Esta é uma aplicação CRUD construída com Next.js, usando o Firebase para persistência de dados. O projeto segue as lições do curso de Desenvolvimento Web da [Cod3r](https://www.cod3r.com.br/).
 
 ### Funcionalidades
 - Adicionar, atualizar, deletar e listar clientes.
