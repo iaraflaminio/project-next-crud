@@ -31,7 +31,6 @@ export default function Home() {
       <Layout Title="Simple CRUD">
         {tableVisible ? (
           <>
-
           <div className="flex justify-end">
             <ButtonClient color={'blue'} className="mb-4" onClick={newClient}>
               New Client

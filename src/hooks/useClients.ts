@@ -5,14 +5,14 @@ import { useEffect, useMemo, useState } from "react"
 import useTableOrForm from "./useTableForm"
 
 export default function useClients() {
-  const repo: ClientRepository = useMemo(() => new ClientCollection(), []) 
+  const repo: ClientRepository =  new ClientCollection()
 
   const {tableVisible, showTable, showForm} = useTableOrForm()
 
   const [client, setClient] = useState<Client>(Client.empty())
   const [clients, setClients] = useState<Client[]>([])
 
-  useEffect(getAllClients, [repo, showTable])
+  useEffect(getAllClients, [])
 
   function getAllClients() {
     repo.getAll().then(clients => {
