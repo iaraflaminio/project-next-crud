@@ -7,7 +7,7 @@
 
 ## Versão em Português
 
-[Leia a versão em português](#versão-em-português)
+[Leia a versão em português](#versão-em-português-1)
 
 ---
 
